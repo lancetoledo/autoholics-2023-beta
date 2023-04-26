@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../images/autoholicsLogo.png'
+import { useEffect, useState } from 'react'
 
 const Header = () => {
     return (
@@ -17,4 +18,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header 

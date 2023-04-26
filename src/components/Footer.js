@@ -9,7 +9,7 @@ import {
 const Footer = () => {
     return (
         <div className='footer'>
-            <diV className='footer_wrapper'>
+            <div className='footer_wrapper'>
                 <div className='company'>Autoholics</div>
                 <p className='copyright'>Autoholics © 2021 All rights reserved.</p>
                 <div className='socials'>
@@ -23,7 +23,7 @@ const Footer = () => {
                         <FaTwitter />
                     </div>
                 </div>
-            </diV>
+            </div>
         </div>
     )
 }
