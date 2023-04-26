@@ -13,15 +13,15 @@ const Footer = () => {
                 <div className='company'>Autoholics</div>
                 <p className='copyright'>Autoholics © 2021 All rights reserved.</p>
                 <div className='socials'>
-                    <div className='socials_icon'>
+                    <a className='socials_icon' href='https://www.facebook.com/spreme.wrps/' target="_blank" rel="noopener noreferrer">
                         <FaFacebook />
-                    </div>
-                    <div className='socials_icon'>
+                    </a>
+                    <a className='socials_icon' href='https://www.instagram.com/autoholics_sj/' target="_blank" rel="noopener noreferrer">
                         <FaInstagram />
-                    </div>
-                    <div className='socials_icon'>
+                    </a>
+                    <a className='socials_icon' href='https://www.instagram.com/s.npai/' target="_blank" rel="noopener noreferrer">
                         <FaTwitter />
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

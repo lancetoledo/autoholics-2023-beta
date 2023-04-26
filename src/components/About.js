@@ -7,7 +7,7 @@ const About = () => {
             <div className='info'>
                 <p className='info_title'>About Us</p>
                 <p className='nav_item'>A new shop that specializes in Automotive customizaton such as window tint, decals, ceramic coating, paint protection film, wheel paint and vinyl wraps.</p>
-                <div className='nav_btn'>Get Started</div>
+                <div className='btn' id='about_btn'>Get Started</div>
             </div>
             <img className='car' src={car} alt='car' />
         </div>

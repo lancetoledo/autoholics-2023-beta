@@ -10,21 +10,21 @@ const Services = () => {
             <div className='deals'>
                 <div className='option'>
                     <img className='icon' src={vinyl} alt='Vinyl Wraps' />
-                    <h2>Vinyl Wraps</h2>
+                    <p className='bold_p'>Vinyl Wraps</p>
                     <p>Starting From:</p>
-                    <h2>$1,900</h2>
+                    <p className='bold_p'>$1,900</p>
                 </div>
                 <div className='option'>
                     <img className='icon' src={tint} alt='Vinyl Wraps' />
-                    <h2>Vinyl Wraps</h2>
+                    <p className='bold_p'>Vinyl Wraps</p>
                     <p>Starting From:</p>
-                    <h2>$1,900</h2>
+                    <p className='bold_p'>$1,900</p>
                 </div>
                 <div className='option'>
                     <img className='icon' src={coat} alt='Vinyl Wraps' />
-                    <h2>Vinyl Wraps</h2>
+                    <p className='bold_p'>Vinyl Wraps</p>
                     <p>Starting From:</p>
-                    <h2>$1,900</h2>
+                    <p className='bold_p'>$1,900</p>
                 </div>
             </div>
         </div>

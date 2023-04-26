@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../images/autoholicsLogo.png'
 import { useEffect, useState } from 'react'
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const [scrollNav, setScrollNav] = useState(false);
@@ -27,7 +28,9 @@ const Header = () => {
                     <p className='nav_item'>Services</p>
                     <p className='nav_item'>Contact Us</p>
                 </div>
-                <div className='nav_btn'>Sign in</div>
+                <Link className='btn' id='nav_btn' to="signin" style={{ textDecoration: 'none' }}>
+                    Sign In
+                </Link>
             </div>
         </div >
     )
