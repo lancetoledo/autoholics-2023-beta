@@ -3,8 +3,23 @@ import logo from '../images/autoholicsLogo.png'
 import { useEffect, useState } from 'react'
 
 const Header = () => {
+    const [scrollNav, setScrollNav] = useState(false);
+
+    const changeNav = () => {
+        if (window.scrollY >= 80) {
+            setScrollNav(true);
+        } else {
+            setScrollNav(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', changeNav);
+    }, []);
+
+
     return (
-        <div className='header'>
+        <div className='header' style={{ background: scrollNav ? '#010606' : 'transparent' }}>
             <div className='nav'>
                 <img className='logo' src={logo} alt="Autoholics" />
                 <div className='nav_menu'>
