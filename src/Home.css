@@ -50,6 +50,10 @@
   text-align: center;
 }
 
+.nav_item:hover {
+  cursor: pointer;
+}
+
 .btn {
   transition: all 0.2s ease-in-out;
   text-decoration: none;
@@ -274,6 +278,11 @@
   text-align: center;
 }
 
+.option:hover {
+  cursor: pointer;
+  transform: translateY(-60px);
+}
+
 .icon {
   height: 160px;
   width: 160px;
@@ -411,4 +420,9 @@
   color: #fff;
   font-size: 24px;
   width: 24px;
+}
+
+.socials_icon:hover {
+  transition: all 0.2s ease-in-out;
+  color: #01bf71;
 }
