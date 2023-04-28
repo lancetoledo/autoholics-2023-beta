@@ -1,8 +1,10 @@
 import React from 'react'
 import logo from '../images/autoholicsLogo.png'
+import google from '../images/Google Logo.png'
 import { Link } from "react-router-dom";
 
-const Login = ({ title, button, href, link, help, headerStatement }) => {
+const Login = ({ title, button, href, link, help, headerStatement, emailInput, passwordInput, btnFunction, googleMsg, googleFunction }) => {
+
     return (
         <div className='Login'>
             <div className='login_wrapper'>
@@ -13,15 +15,25 @@ const Login = ({ title, button, href, link, help, headerStatement }) => {
                     <form>
                         <h1>{title}</h1>
                         <label htmlFor='for'>Email</label>
-                        <input type='email' required></input>
+                        <input ref={emailInput} type='email' required></input>
                         <label htmlFor='for'>Password</label>
-                        <input type='password' required ></input>
-                        <button type='submit'>{button}</button>
-                        <span className='forgot'>{help}</span>
+                        <input ref={passwordInput} type='password' required ></input>
+                        <button className='login_btn' onClick={(e) => btnFunction(e)}>{button}</button>
+                        <div onClick={() => googleFunction()} className='login_options'>
+                            <img className='google' src={google} alt="google" />
+                            <button type="button" className="login-with-google-btn" >
+                                {googleMsg}
+                            </button>
+
+                            {/* <button type="button" className="login-with-google-btn" disabled>
+                                {googleMsg}
+                            </button> */}
+                        </div>
                         <div className='options'>
                             <span>{headerStatement}</span>
                             <a href={href}>{link}</a>
                         </div>
+                        <span className='forgot'>{help}</span>
                     </form>
                 </div>
             </div>
