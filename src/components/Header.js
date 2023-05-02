@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import toast, { Toaster } from 'react-hot-toast';
+import * as Scroll from 'react-scroll'
 import {
     AiOutlineUser
 } from 'react-icons/ai'
@@ -14,6 +15,8 @@ const Header = ({ click, setClick }) => {
     const [isAuthUser, setAuthUser] = useState(false)
     const [user, setUser] = useState('')
     const [scrollNav, setScrollNav] = useState(false);
+
+    let ScrollLink = Scroll.Link
 
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
@@ -45,6 +48,10 @@ const Header = ({ click, setClick }) => {
         setClick(status)
     }
 
+    const clearActive = () => {
+        setClick(false)
+    }
+
     const logout = async () => {
         console.log("HII")
         await signOut(auth).then(() => {
@@ -57,7 +64,7 @@ const Header = ({ click, setClick }) => {
         setUser('')
     }
 
-
+    console.log(click, "CLICK")
     return (
         <>
             {/* <Toaster
@@ -67,12 +74,12 @@ const Header = ({ click, setClick }) => {
             /> */}
             <div className='header' style={{ background: scrollNav ? '#010606' : 'transparent' }}>
                 <div className='nav'>
-                    <img className='logo' src={logo} alt="Autoholics" />
+                    <ScrollLink activeClass="active" className='logo' to="hero" spy={true} smooth={true} offset={50} duration={500} onClick={() => clearActive()}><img src={logo} alt="Autoholics" /></ScrollLink>
                     <div className='nav_menu'>
-                        <p className='nav_item' onClick={() => handleStatus("about")}>About Us</p>
-                        <p className='nav_item' onClick={() => handleStatus("services")} >Services</p>
-                        <p className='nav_item' onClick={() => handleStatus("contact")}>Contact Us</p>
-                        <p className='nav_item' onClick={() => handleStatus("shop")}>Shop</p>
+                        <ScrollLink activeClass="active" to="about" spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('about')}><p className={click === 'about' ? 'nav_item activate' : 'nav_item'}>About Us</p></ScrollLink>
+                        <ScrollLink activeClass="active" to="services" spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('services')}><p className={click === 'services' ? 'nav_item activate' : 'nav_item'}>Services</p></ScrollLink>
+                        <ScrollLink activeClass="active" to="discover" spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('contact')}><p className={click === 'contact' ? 'nav_item activate' : 'nav_item'}>Contact Us</p></ScrollLink>
+                        <ScrollLink activeClass="active" to="shop" spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('shop')}><p className={'nav_item'}>Shop</p></ScrollLink>
                     </div>
                     <div className='user_controls'>
                         {user ? <p className='user'>Welcome back {user?.displayName}</p> : ''}
