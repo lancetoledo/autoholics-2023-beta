@@ -74,6 +74,7 @@
   justify-content: center;
   align-items: center;
   width: 150px;
+  background-color: red;
 }
 
 .btn {
@@ -443,6 +444,16 @@
   font-size: 24px;
   width: 24px;
 }
+
+.profile_icon {
+  color: #fff;
+  font-size: 24px;
+  width: 24px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+
 
 .socials_icon:hover {
   transition: all 0.2s ease-in-out;

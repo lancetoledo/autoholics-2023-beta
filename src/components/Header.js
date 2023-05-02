@@ -4,14 +4,15 @@ import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import toast, { Toaster } from 'react-hot-toast';
+import {
+    AiOutlineUser
+} from 'react-icons/ai'
 
 
-const Header = () => {
+const Header = ({ click, setClick }) => {
     // const [auth, setAuth] = useState('')
     const [isAuthUser, setAuthUser] = useState(false)
     const [user, setUser] = useState('')
-
-
     const [scrollNav, setScrollNav] = useState(false);
 
     const auth = getAuth();
@@ -40,6 +41,9 @@ const Header = () => {
     }, []);
 
 
+    const handleStatus = (status) => {
+        setClick(status)
+    }
 
     const logout = async () => {
         console.log("HII")
@@ -65,12 +69,14 @@ const Header = () => {
                 <div className='nav'>
                     <img className='logo' src={logo} alt="Autoholics" />
                     <div className='nav_menu'>
-                        <p className='nav_item'>About Us</p>
-                        <p className='nav_item'>Services</p>
-                        <p className='nav_item'>Contact Us</p>
+                        <p className='nav_item' onClick={() => handleStatus("about")}>About Us</p>
+                        <p className='nav_item' onClick={() => handleStatus("services")} >Services</p>
+                        <p className='nav_item' onClick={() => handleStatus("contact")}>Contact Us</p>
+                        <p className='nav_item' onClick={() => handleStatus("shop")}>Shop</p>
                     </div>
                     <div className='user_controls'>
-                        {user ? <p className='user'>{user?.displayName}</p> : ''}
+                        {user ? <p className='user'>Welcome back {user?.displayName}</p> : ''}
+                        {!user?.displayName ? '' : <AiOutlineUser className='profile_icon' />}
                         {user ? <div className='btn' id='nav_btn' onClick={() => logout()}>Log Out</div> :
                             <Link className='btn' id='nav_btn' to="signin" style={{ textDecoration: 'none' }}>
                                 Sign In

@@ -3,7 +3,7 @@ import logo from '../images/autoholicsLogo.png'
 import google from '../images/Google Logo.png'
 import { Link } from "react-router-dom";
 
-const Login = ({ title, button, href, link, help, headerStatement, emailInput, passwordInput, btnFunction, googleMsg, googleFunction }) => {
+const Login = ({ title, button, href, link, help, headerStatement, firstNameInput, lastNameInput, emailInput, passwordInput, btnFunction, googleMsg, googleFunction, isSingingUp }) => {
 
     return (
         <div className='Login'>
@@ -14,6 +14,10 @@ const Login = ({ title, button, href, link, help, headerStatement, emailInput, p
                 <div className='form_content'>
                     <form>
                         <h1>{title}</h1>
+                        {isSingingUp ? <label htmlFor='for'>First Name</label> : ""}
+                        {isSingingUp ? <input ref={firstNameInput} required></input> : ""}
+                        {isSingingUp ? <label htmlFor='for'>Last Name</label> : ""}
+                        {isSingingUp ? <input ref={lastNameInput} required></input> : ""}
                         <label htmlFor='for'>Email</label>
                         <input ref={emailInput} type='email' required></input>
                         <label htmlFor='for'>Password</label>
