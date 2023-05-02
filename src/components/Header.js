@@ -15,16 +15,20 @@ const Header = ({ click, setClick }) => {
     const [isAuthUser, setAuthUser] = useState(false)
     const [user, setUser] = useState('')
     const [scrollNav, setScrollNav] = useState(false);
+    const [isUser, setIsUser] = useState(false)
+
 
     let ScrollLink = Scroll.Link
 
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
-        if (user) {
+        if (user && isUser === false) {
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User
             const uid = user.uid;
+            console.log("setting user")
             setUser(user)
+            setIsUser(true)
         } else {
             // User is signed out
             // ...
