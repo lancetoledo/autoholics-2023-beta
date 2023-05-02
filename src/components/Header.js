@@ -82,7 +82,7 @@ const Header = ({ click, setClick }) => {
                         <ScrollLink activeClass="active" to="shop" spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('shop')}><p className={'nav_item'}>Shop</p></ScrollLink>
                     </div>
                     <div className='user_controls'>
-                        {user ? <p className='user'>Welcome back {user?.displayName}</p> : ''}
+                        {user ? <p className='user'>{user?.displayName}</p> : ''}
                         {!user?.displayName ? '' : <AiOutlineUser className='profile_icon' />}
                         {user ? <div className='btn' id='nav_btn' onClick={() => logout()}>Log Out</div> :
                             <Link className='btn' id='nav_btn' to="signin" style={{ textDecoration: 'none' }}>
