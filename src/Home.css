@@ -58,6 +58,7 @@
   /* background-color: blue;
   border: 1px solid red; */
   text-align: center;
+  color: inherit;
 }
 
 .nav_item:hover {

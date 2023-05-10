@@ -83,7 +83,10 @@ const Header = ({ click, setClick }) => {
                         <ScrollLink activeClass="active" to="about" spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('about')}><p className={click === 'about' ? 'nav_item activate' : 'nav_item'}>About Us</p></ScrollLink>
                         <ScrollLink activeClass="active" to="services" spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('services')}><p className={click === 'services' ? 'nav_item activate' : 'nav_item'}>Services</p></ScrollLink>
                         <ScrollLink activeClass="active" to="discover" spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('contact')}><p className={click === 'contact' ? 'nav_item activate' : 'nav_item'}>Contact Us</p></ScrollLink>
-                        <ScrollLink activeClass="active" to="shop" spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('shop')}><p className={'nav_item'}>Shop</p></ScrollLink>
+                        <Link className='nav_item shop' to="shop" style={{ textDecoration: 'none' }}>
+                            Shop
+                        </Link>
+                        {/* <ScrollLink activeClass="active" to="shop" spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('shop')}><p className={'nav_item'}>Shop</p></ScrollLink> */}
                     </div>
                     <div className='user_controls'>
                         {user ? <p className='user'>{user?.displayName}</p> : ''}
