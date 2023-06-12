@@ -1,0 +1,21 @@
+[
+    {
+        "value": "Autoholics T-shirt",
+        "label": "clothing",
+        "price": 60.00
+    },
+    {
+        "value": "Autoholics Classic Logo Hat",
+        "label": "hats",
+        "price": 40.00
+    },
+    {
+        "value": "Autoholics Keychain",
+        "label": "accessories",
+        "price": 15.00
+    },
+    {
+        "value": "Autoholics Liscense Plate",
+        "label": 20.00
+    }
+]

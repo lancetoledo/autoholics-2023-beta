@@ -5,6 +5,7 @@ import SignUp from './pages/SignUp';
 import Shop from './pages/Shop';
 import './Home.css';
 import './Login.css';
+import './Shop.css'
 
 
 function App() {

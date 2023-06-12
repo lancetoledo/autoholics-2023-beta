@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded&display=swap');
+
+.Shop {
+    /* position: fixed; */
+    /* bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 0; */
+    overflow: hidden;
+    width: 100%;
+}
+
+.collections {
+    background-color: black;
+    height: 600px;
+}

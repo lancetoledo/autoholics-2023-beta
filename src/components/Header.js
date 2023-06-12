@@ -8,7 +8,7 @@ import * as Scroll from 'react-scroll'
 import {
     AiOutlineUser
 } from 'react-icons/ai'
-
+import { IoBagHandleOutline } from 'react-icons/io5'
 
 const Header = ({ click, setClick }) => {
     // const [auth, setAuth] = useState('')
@@ -91,6 +91,7 @@ const Header = ({ click, setClick }) => {
                     <div className='user_controls'>
                         {user ? <p className='user'>{user?.displayName}</p> : ''}
                         {!user?.displayName ? '' : <AiOutlineUser className='profile_icon' />}
+                        {!user?.displayName ? '' : <IoBagHandleOutline className='profile_icon' />}
                         {user ? <div className='btn' id='nav_btn' onClick={() => logout()}>Log Out</div> :
                             <Link className='btn' id='nav_btn' to="signin" style={{ textDecoration: 'none' }}>
                                 Sign In
