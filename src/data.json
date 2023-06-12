@@ -1,21 +1,35 @@
 [
     {
+        "id": 0,
         "value": "Autoholics T-shirt",
+        "image": "https://img.freepik.com/premium-photo/front-view-black-hoodie-isolated-white-background_236836-22582.jpg",
         "label": "clothing",
-        "price": 60.00
+        "price": 60
     },
     {
+        "id": 1,
         "value": "Autoholics Classic Logo Hat",
+        "image": "https://img.freepik.com/premium-photo/front-view-black-hoodie-isolated-white-background_236836-22582.jpg",
         "label": "hats",
-        "price": 40.00
+        "price": 40
     },
     {
+        "id": 2,
         "value": "Autoholics Keychain",
+        "image": "https://img.freepik.com/premium-photo/front-view-black-hoodie-isolated-white-background_236836-22582.jpg",
         "label": "accessories",
-        "price": 15.00
+        "price": 15
     },
     {
+        "id": 3,
         "value": "Autoholics Liscense Plate",
-        "label": 20.00
+        "image": "https://img.freepik.com/premium-photo/front-view-black-hoodie-isolated-white-background_236836-22582.jpg",
+        "label": 20
+    },
+    {
+        "id": 4,
+        "value": "Autoholics Liscense Plate",
+        "image": "https://img.freepik.com/premium-photo/front-view-black-hoodie-isolated-white-background_236836-22582.jpg",
+        "label": 20
     }
 ]

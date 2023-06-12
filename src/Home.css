@@ -8,6 +8,11 @@
   font-family: 'Encode Sans Expanded', sans-serif;
 }
 
+#loom-companion-mv3 {
+  width: 0;
+  height: 0;
+}
+
 .toast {
   display: flex;
   align-items: center;

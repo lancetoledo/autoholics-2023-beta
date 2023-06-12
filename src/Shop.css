@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded&display=swap');
 
 .Shop {
-    /* position: fixed; */
+    position: absolute;
     /* bottom: 0;
     left: 0;
     right: 0;
@@ -9,9 +9,70 @@
     z-index: 0; */
     overflow: hidden;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .collections {
     background-color: black;
-    height: 600px;
+    height: 900px;
+    margin-bottom: 100px;
+}
+
+/* .items-container {
+    background-color: blue;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+
+.item {
+    flex-basis: 25%;
+    display: flex;
+    flex-direction: column;
+    width: 5px;
+    height: 50px;
+    background-color: yellow;
+    border: black solid;
+} */
+
+.items-container {
+    /* margin-top: 50px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 50%;
+    /* background-color: blue; */
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(25% - 10px);
+    height: 350px;
+    /* Subtract 10px for the spacing */
+    margin-bottom: 10px;
+    /* Add spacing at the bottom of each item */
+    /* background-color: yellow; */
+}
+
+#item_image {
+    width: 250px;
+    height: 250px;
+}
+
+.item_info {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+}
+
+#value {
+    font-weight: bold;
+
 }
