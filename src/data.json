@@ -24,12 +24,14 @@
         "id": 3,
         "value": "Autoholics Liscense Plate",
         "image": "https://img.freepik.com/premium-photo/front-view-black-hoodie-isolated-white-background_236836-22582.jpg",
-        "label": 20
+        "label": "accessories",
+        "price": 20
     },
     {
         "id": 4,
         "value": "Autoholics Liscense Plate",
         "image": "https://img.freepik.com/premium-photo/front-view-black-hoodie-isolated-white-background_236836-22582.jpg",
-        "label": 20
+        "label": "accessories",
+        "price": 20
     }
 ]
