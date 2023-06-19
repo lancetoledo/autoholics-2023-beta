@@ -62,6 +62,11 @@ const Shop = () => {
                     </div>
                 </div>
             </div>
+            <div className='sort_container'>
+                <p>Sort By:</p>
+                <p>Alphabetically, A-Z</p>
+                <p>32 Products</p>
+            </div>
             <div className='items_container'>
                 {data.map((item) => {
                     return <Item item={item} />

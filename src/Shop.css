@@ -19,7 +19,7 @@
     background-color: black;
     /* min-height: 3%; */
     max-height: 480px;
-    margin-bottom: 128px;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,6 +79,23 @@
     width: 25px;
     margin-left: 5px;
     /* Add a small margin to create spacing between the text and the icon */
+}
+
+.sort_container {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 55%;
+    height: auto;
+    /* align-items: center; */
+    text-align: right;
+}
+
+.sort_container p {
+    font-size: smaller;
+    width: 150px;
+    height: auto;
+    /* background-color: blue;
+    border: black dotted; */
 }
 
 .items_container {
