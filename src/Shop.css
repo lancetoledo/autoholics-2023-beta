@@ -90,7 +90,7 @@
     /* align-items: center; */
     text-align: right;
     gap: 5px;
-
+    margin-bottom: 20px;
     /* Add a z-index value */
 }
 
@@ -127,7 +127,7 @@
     top: 100%;
     right: 0;
     width: auto;
-    min-height: 100px;
+    min-height: 140px;
     /* Adjust the max height as needed */
     overflow-y: auto;
     border-radius: 4px;
@@ -159,8 +159,8 @@
     width: 100%;
     max-width: 60%;
     position: relative;
-    /* Add position relative */
-    /* Add a lower z-index value */
+    margin-top: 20px;
+    /* Added spacing */
 }
 
 .item {
@@ -183,6 +183,18 @@
     height: 60px;
 }
 
+.stars {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px
+}
+
+.star-icon {
+    width: 10px;
+    margin-right: 6px;
+}
+
 #value {
     font-weight: bold;
+    margin-bottom: 10px;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ShopHeader from '../components/shop/ShopHeader'
 import data from '../data.json'
 import Item from '../components/shop/Item'
@@ -10,11 +10,37 @@ import { RiArrowDropDownLine } from "react-icons/ri"
 const Shop = () => {
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    console.log(dropdownOpen)
+    const [selectedOption, setSelectedOption] = useState('Alphabetically, A-Z');
+    const [filteredData, setFilteredData] = useState(data);
+
     const toggleDropdown = () => {
         console.log("CLICKED?")
         setDropdownOpen(!dropdownOpen);
     };
+
+    const handleOptionSelect = (option) => {
+        setSelectedOption(option);
+        setDropdownOpen(false);
+    };
+
+    useEffect(() => {
+        if (selectedOption === 'Price, low to high') {
+            const sortedData = [...data].sort((a, b) => a.price - b.price);
+            setFilteredData(sortedData);
+        } else if (selectedOption === 'Price, high to low') {
+            const sortedData = [...data].sort((a, b) => b.price - a.price);
+            setFilteredData(sortedData);
+        } else if (selectedOption === 'Alphabetically, A-Z') {
+            const sortedData = [...data].sort((a, b) => a.value.localeCompare(b.value));
+            setFilteredData(sortedData)
+        } else if (selectedOption === 'Alphabetically, Z-A') {
+            const sortedData = [...data].sort((a, b) => b.value.localeCompare(a.value));
+            setFilteredData(sortedData)
+        } else {
+            setFilteredData(data);
+        }
+    }, [selectedOption]);
+
     let items = [
         {
             "id": 0,
@@ -76,21 +102,22 @@ const Shop = () => {
             <div className='sort_container'>
                 <p>Sort By:</p>
                 <div className='filter' onClick={toggleDropdown}>
-                    <p>Alphabetically, A-Z</p>
+                    <p>{selectedOption}</p>
                     <RiArrowDropDownLine className='dropdown_arrow' />
                     {dropdownOpen && (
                         <div className='dropdown_options'>
                             {/* Add your dropdown options here */}
-                            <p>Option 1</p>
-                            <p>Option 2</p>
-                            <p>Option 3</p>
+                            <p onClick={() => handleOptionSelect('Alphabetically, A-Z')}>Alphabetically, A-Z</p>
+                            <p onClick={() => handleOptionSelect('Alphabetically, Z-A')}>Alphabetically, Z-A</p>
+                            <p onClick={() => handleOptionSelect('Price, low to high')}>Price, low to high</p>
+                            <p onClick={() => handleOptionSelect('Price, high to low')}>Price, high to low</p>
                         </div>
                     )}
                 </div>
                 <p>{data.length} products</p>
             </div>
             <div className='items_container'>
-                {data.map((item) => {
+                {filteredData.map((item) => {
                     return <Item item={item} />
                 })
                 }
