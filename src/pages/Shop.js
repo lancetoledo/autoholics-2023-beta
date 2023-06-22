@@ -3,6 +3,7 @@ import ShopHeader from '../components/shop/ShopHeader'
 import data from '../data.json'
 import Item from '../components/shop/Item'
 import Category from '../components/shop/Category'
+import { RiArrowDropDownLine } from "react-icons/ri"
 
 
 const Shop = () => {
@@ -64,7 +65,10 @@ const Shop = () => {
             </div>
             <div className='sort_container'>
                 <p>Sort By:</p>
-                <p>Alphabetically, A-Z</p>
+                <div className='filter'>
+                    <p>Alphabetically, A-Z</p>
+                    <RiArrowDropDownLine className='dropdown_arrow' />
+                </div>
                 <p>32 Products</p>
             </div>
             <div className='items_container'>
