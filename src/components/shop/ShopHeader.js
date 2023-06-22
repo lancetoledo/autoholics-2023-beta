@@ -67,8 +67,6 @@ const ShopHeader = ({ click, setClick }) => {
         // toast.success("You logged out!")
         setUser('')
     }
-
-    console.log(click, "CLICK")
     return (
         <>
             {/* <Toaster

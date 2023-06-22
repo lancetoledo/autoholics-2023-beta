@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Item = ({ item }) => {
-    console.log(item)
     return (
         <div div className='item' key={item.id}>
             <img id='item_image' src={item.image} />

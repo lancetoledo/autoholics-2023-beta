@@ -2,7 +2,7 @@ import React from 'react'
 import { IoIosArrowRoundForward } from 'react-icons/io'
 
 const Category = ({ category }) => {
-    console.log(category)
+
     return (
         <div div className='category_container' key={category.id}>
             <img id='item_image' src={category.image} />

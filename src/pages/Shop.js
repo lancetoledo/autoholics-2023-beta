@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import ShopHeader from '../components/shop/ShopHeader'
 import data from '../data.json'
 import Item from '../components/shop/Item'
@@ -7,6 +8,13 @@ import { RiArrowDropDownLine } from "react-icons/ri"
 
 
 const Shop = () => {
+
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    console.log(dropdownOpen)
+    const toggleDropdown = () => {
+        console.log("CLICKED?")
+        setDropdownOpen(!dropdownOpen);
+    };
     let items = [
         {
             "id": 0,
@@ -48,6 +56,8 @@ const Shop = () => {
 
         },
     ]
+
+
     return (
         <div className='Shop'>
             <div className='collections'>
@@ -65,11 +75,19 @@ const Shop = () => {
             </div>
             <div className='sort_container'>
                 <p>Sort By:</p>
-                <div className='filter'>
+                <div className='filter' onClick={toggleDropdown}>
                     <p>Alphabetically, A-Z</p>
                     <RiArrowDropDownLine className='dropdown_arrow' />
+                    {dropdownOpen && (
+                        <div className='dropdown_options'>
+                            {/* Add your dropdown options here */}
+                            <p>Option 1</p>
+                            <p>Option 2</p>
+                            <p>Option 3</p>
+                        </div>
+                    )}
                 </div>
-                <p>32 Products</p>
+                <p>{data.length} products</p>
             </div>
             <div className='items_container'>
                 {data.map((item) => {
