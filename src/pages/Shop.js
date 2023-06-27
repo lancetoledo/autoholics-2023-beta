@@ -5,13 +5,18 @@ import data from '../data.json'
 import Item from '../components/shop/Item'
 import Category from '../components/shop/Category'
 import { RiArrowDropDownLine } from "react-icons/ri"
+import db from '../utils/firebase';
+import { auth } from '../utils/firebase';
+import { signOut } from 'firebase/auth';
+import { onSnapshot, collection, doc, getDocs } from 'firebase/firestore';
 
 
 const Shop = () => {
 
+    const [shop, setShop] = useState([])
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState('Alphabetically, A-Z');
-    const [filteredData, setFilteredData] = useState(data);
+    const [filteredData, setFilteredData] = useState(shop);
 
     const toggleDropdown = () => {
         console.log("CLICKED?")
@@ -23,23 +28,34 @@ const Shop = () => {
         setDropdownOpen(false);
     };
 
+
     useEffect(() => {
+
+        const unsub = onSnapshot(collection(db, "shop"), (snapshot) => {
+            let shop = snapshot.docs.map((doc) => ({ ...doc, id: doc.id }))
+            setShop(shop)
+        })
+
+
         if (selectedOption === 'Price, low to high') {
-            const sortedData = [...data].sort((a, b) => a.price - b.price);
+            const sortedData = [...shop].sort((a, b) => a.price - b.price);
             setFilteredData(sortedData);
         } else if (selectedOption === 'Price, high to low') {
-            const sortedData = [...data].sort((a, b) => b.price - a.price);
+            const sortedData = [...shop].sort((a, b) => b.price - a.price);
             setFilteredData(sortedData);
         } else if (selectedOption === 'Alphabetically, A-Z') {
-            const sortedData = [...data].sort((a, b) => a.value.localeCompare(b.value));
+            const sortedData = [...shop].sort((a, b) => a.value.localeCompare(b.value));
             setFilteredData(sortedData)
         } else if (selectedOption === 'Alphabetically, Z-A') {
-            const sortedData = [...data].sort((a, b) => b.value.localeCompare(a.value));
+            const sortedData = [...shop].sort((a, b) => b.value.localeCompare(a.value));
             setFilteredData(sortedData)
         } else {
-            setFilteredData(data);
+            setFilteredData(shop);
         }
-    }, [selectedOption]);
+
+        // clean up
+        return unsub
+    }, [selectedOption])
 
     let items = [
         {
@@ -114,7 +130,7 @@ const Shop = () => {
                         </div>
                     )}
                 </div>
-                <p>{data.length} products</p>
+                <p>{shop.length} products</p>
             </div>
             <div className='items_container'>
                 {filteredData.map((item) => {

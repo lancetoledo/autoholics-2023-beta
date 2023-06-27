@@ -3,6 +3,7 @@ import logo from '../images/autoholicsLogo.png'
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import db from '../utils/firebase';
 import toast, { Toaster } from 'react-hot-toast';
 import * as Scroll from 'react-scroll'
 import {
@@ -11,6 +12,7 @@ import {
 import { IoBagHandleOutline } from 'react-icons/io5'
 
 const Header = ({ click, setClick }) => {
+    console.log(db, "YERR")
     // const [auth, setAuth] = useState('')
     const [isAuthUser, setAuthUser] = useState(false)
     const [user, setUser] = useState('')
