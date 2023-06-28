@@ -2,6 +2,7 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
 const Item = ({ item }) => {
+    console.log(item, "YEP")
     const renderStars = () => {
         const stars = [];
         for (let i = 0; i < item.stars; i++) {

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded&display=swap');
 
+/* Common styles */
+
 .Shop {
     position: relative;
     overflow: hidden;
@@ -17,7 +19,6 @@
 
 .collections {
     background-color: black;
-    /* min-height: 3%; */
     max-height: 480px;
     margin-bottom: 50px;
     display: flex;
@@ -30,7 +31,6 @@
     flex-direction: column;
     justify-content: center;
     margin-top: 10px;
-    /* background-color: blue; */
     width: 100%;
     max-width: 60%;
     height: 100%;
@@ -38,7 +38,6 @@
 
 #category {
     color: white;
-    /* margin-top: 40px; */
     height: 100px;
     font-size: 45px;
 }
@@ -58,11 +57,9 @@
 .label {
     display: flex;
     color: white;
-    /* justify-content: space-between; */
     height: 50px;
     width: 200px;
     cursor: pointer;
-    /* background-color: blue; */
 }
 
 .label h3 {
@@ -71,14 +68,12 @@
     align-items: center;
     height: 100%;
     width: auto;
-    /* Adjust the width to automatically fit the content */
 }
 
 .arrow_icon {
     color: #fff;
     width: 25px;
     margin-left: 5px;
-    /* Add a small margin to create spacing between the text and the icon */
 }
 
 .sort_container {
@@ -87,19 +82,15 @@
     align-items: center;
     max-width: 55%;
     height: auto;
-    /* align-items: center; */
     text-align: right;
     gap: 5px;
     margin-bottom: 20px;
-    /* Add a z-index value */
 }
 
 .sort_container p {
     font-size: smaller;
     width: auto;
     height: auto;
-    /* background-color: blue;
-    border: black dotted; */
 }
 
 .filter {
@@ -109,7 +100,6 @@
     width: auto;
     cursor: pointer;
     position: relative;
-    /* background-color: red; */
     z-index: 1;
 }
 
@@ -117,7 +107,6 @@
     font-size: 24px;
     width: 25px;
     margin-right: 20px;
-    /* background-color: yellow; */
 }
 
 .dropdown_options {
@@ -128,12 +117,10 @@
     right: 0;
     width: auto;
     min-height: 140px;
-    /* Adjust the max height as needed */
     overflow-y: auto;
     border-radius: 4px;
     border: 1px solid #ccc;
     background-color: white;
-    /* padding: 10px; */
     z-index: 2;
 }
 
@@ -160,7 +147,6 @@
     max-width: 60%;
     position: relative;
     margin-top: 20px;
-    /* Added spacing */
 }
 
 .item {
@@ -186,7 +172,7 @@
 .stars {
     display: flex;
     align-items: center;
-    margin-bottom: 10px
+    margin-bottom: 10px;
 }
 
 .star-icon {
@@ -197,4 +183,62 @@
 #value {
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+/* Mobile responsive styles */
+
+@media (max-width: 768px) {
+    .collections {
+        max-height: none;
+        margin-bottom: 30px;
+    }
+
+    .products_container {
+        max-width: 80%;
+    }
+
+    .categories {
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .category_container {
+        width: 50%;
+        height: 200px;
+    }
+
+    .label {
+        width: 150px;
+    }
+
+    .item {
+        width: 50%;
+        height: 280px;
+    }
+
+    #item_image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .items_container {
+        max-width: 80%;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .category_container {
+        width: 100%;
+    }
+
+    .item {
+        width: 100%;
+        height: 250px;
+    }
+
+    #item_image {
+        width: 180px;
+        height: 180px;
+    }
 }

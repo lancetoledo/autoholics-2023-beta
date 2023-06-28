@@ -1,25 +1,22 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import ShopHeader from '../components/shop/ShopHeader'
-import data from '../data.json'
-import Item from '../components/shop/Item'
-import Category from '../components/shop/Category'
-import { RiArrowDropDownLine } from "react-icons/ri"
-import db from '../utils/firebase';
+import React, { useState, useEffect } from 'react';
+import { RiArrowDropDownLine } from 'react-icons/ri';
+import { collection, onSnapshot } from 'firebase/firestore';
 import { auth } from '../utils/firebase';
 import { signOut } from 'firebase/auth';
-import { onSnapshot, collection, doc, getDocs } from 'firebase/firestore';
+import db from '../utils/firebase';
+import ShopHeader from '../components/shop/ShopHeader';
+import Item from '../components/shop/Item';
+import Category from '../components/shop/Category';
+import data from '../data.json';
 
 
 const Shop = () => {
-
-    const [shop, setShop] = useState([])
+    const [shop, setShop] = useState([]);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState('Alphabetically, A-Z');
-    const [filteredData, setFilteredData] = useState(shop);
+    const [filteredData, setFilteredData] = useState([]);
 
     const toggleDropdown = () => {
-        console.log("CLICKED?")
         setDropdownOpen(!dropdownOpen);
     };
 
@@ -28,34 +25,34 @@ const Shop = () => {
         setDropdownOpen(false);
     };
 
+    useEffect(() => {
+        const unsub = onSnapshot(collection(db, 'shop'), (snapshot) => {
+            const shopData = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+            setShop(shopData);
+        });
+
+        const sortData = () => {
+            let sortedData = [...shop];
+            if (selectedOption === 'Price, low to high') {
+                sortedData = sortedData.sort((a, b) => a.price - b.price);
+            } else if (selectedOption === 'Price, high to low') {
+                sortedData = sortedData.sort((a, b) => b.price - a.price);
+            } else if (selectedOption === 'Alphabetically, A-Z') {
+                sortedData = sortedData.sort((a, b) => a.value.localeCompare(b.value));
+            } else if (selectedOption === 'Alphabetically, Z-A') {
+                sortedData = sortedData.sort((a, b) => b.value.localeCompare(a.value));
+            }
+            setFilteredData(sortedData);
+        };
+
+        sortData();
+
+        return unsub; // cleanup
+    }, [selectedOption, shop]);
 
     useEffect(() => {
-
-        const unsub = onSnapshot(collection(db, "shop"), (snapshot) => {
-            let shop = snapshot.docs.map((doc) => ({ ...doc, id: doc.id }))
-            setShop(shop)
-        })
-
-
-        if (selectedOption === 'Price, low to high') {
-            const sortedData = [...shop].sort((a, b) => a.price - b.price);
-            setFilteredData(sortedData);
-        } else if (selectedOption === 'Price, high to low') {
-            const sortedData = [...shop].sort((a, b) => b.price - a.price);
-            setFilteredData(sortedData);
-        } else if (selectedOption === 'Alphabetically, A-Z') {
-            const sortedData = [...shop].sort((a, b) => a.value.localeCompare(b.value));
-            setFilteredData(sortedData)
-        } else if (selectedOption === 'Alphabetically, Z-A') {
-            const sortedData = [...shop].sort((a, b) => b.value.localeCompare(a.value));
-            setFilteredData(sortedData)
-        } else {
-            setFilteredData(shop);
-        }
-
-        // clean up
-        return unsub
-    }, [selectedOption])
+        setFilteredData(shop);
+    }, [shop]);
 
     let items = [
         {
@@ -107,11 +104,9 @@ const Shop = () => {
                 <div className='products_container'>
                     <h1 id='category'>Products</h1>
                     <div className='categories'>
-                        <Category category={items[0]} />
-                        <Category category={items[1]} />
-                        <Category category={items[2]} />
-                        <Category category={items[3]} />
-                        <Category category={items[4]} />
+                        {items.map((item) => (
+                            <Category key={item.id} category={item} />
+                        ))}
                     </div>
                 </div>
             </div>
