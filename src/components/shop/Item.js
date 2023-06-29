@@ -1,8 +1,7 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 
-const Item = ({ item }) => {
-    console.log(item, "YEP")
+const Item = ({ item, addToCart }) => {
     const renderStars = () => {
         const stars = [];
         for (let i = 0; i < item.stars; i++) {
@@ -12,7 +11,7 @@ const Item = ({ item }) => {
     };
 
     return (
-        <div className='item' key={item.id}>
+        <div className='item' key={item.id} onClick={() => addToCart(item)}>
             <img id='item_image' src={item.image} alt={item.value} />
             <div className='item_info'>
                 <p id='value'>{item.value}</p>

@@ -15,6 +15,14 @@ const Shop = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState('Alphabetically, A-Z');
     const [filteredData, setFilteredData] = useState([]);
+    // Cart Functionality
+    const [cart, setCart] = useState([])
+
+    // Add to Cart Function
+    const addToCart = (item) => {
+        setCart([...cart, item]);
+        console.log(cart, "the cart")
+    }
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
@@ -48,7 +56,7 @@ const Shop = () => {
         sortData();
 
         return unsub; // cleanup
-    }, [selectedOption, shop]);
+    }, [selectedOption]);
 
     useEffect(() => {
         setFilteredData(shop);
@@ -100,7 +108,7 @@ const Shop = () => {
     return (
         <div className='Shop'>
             <div className='collections'>
-                <ShopHeader />
+                <ShopHeader cart={cart} />
                 <div className='products_container'>
                     <h1 id='category'>Products</h1>
                     <div className='categories'>
@@ -129,7 +137,7 @@ const Shop = () => {
             </div>
             <div className='items_container'>
                 {filteredData.map((item) => {
-                    return <Item item={item} />
+                    return <Item item={item} addToCart={addToCart} />
                 })
                 }
             </div>

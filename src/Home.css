@@ -49,12 +49,10 @@
   cursor: pointer;
 }
 
-.nav_menu {
+/* .nav_menu {
   display: flex;
   width: 30%;
-  /* border: 5px solid red;
-  background-color: #01bf71; */
-}
+} */
 
 .nav_item {
   display: flex;
@@ -75,13 +73,11 @@
   border-bottom: 3px solid rgb(1, 191, 113);
 }
 
-.user_controls {
+/* .user_controls {
   display: flex;
   align-items: center;
-  width: 330px;
   justify-content: space-evenly;
-  /* background-color: yellow; */
-}
+} */
 
 .user {
   display: flex;

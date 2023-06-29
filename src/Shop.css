@@ -13,8 +13,134 @@
 .shop_header {
     height: 80px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     color: white;
+}
+
+
+.nav {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    max-width: 2100px;
+    width: 100%;
+}
+
+.logo {
+    width: 180px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.nav_menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    gap: 2px;
+}
+
+
+.nav_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: inherit;
+}
+
+.nav_item:hover {
+    cursor: pointer;
+}
+
+.activate {
+    border-bottom: 3px solid rgb(1, 191, 113);
+}
+
+.user_controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: fit-content;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+}
+
+.btn {
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    background: #01bf71;
+}
+
+.btn:hover {
+    transition: all 0.2s ease-in-out;
+    background: #ffffff;
+}
+
+#nav_btn {
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 110px;
+    color: #010606;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%), linear-gradient(rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+}
+
+.cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    /* Add this line */
+}
+
+.cart-count {
+    position: absolute;
+    top: 35px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: #ff5252;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.cart {
+    color: #fff;
+    font-size: 24px;
+    width: 25px;
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+    /* Add this line */
+    z-index: 0;
+    /* Add this line */
 }
 
 .collections {
