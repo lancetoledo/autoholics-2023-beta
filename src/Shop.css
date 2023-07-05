@@ -12,7 +12,9 @@
 }
 
 .shop_header {
+    width: 100%;
     height: 80px;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,21 +39,21 @@
     cursor: pointer;
 }
 
-.nav_menu {
+.shop_nav_menu {
     display: flex;
     gap: 100px;
     width: auto;
 }
 
 
-.nav_item {
+.shop_nav_item {
     display: flex;
     justify-content: center;
     align-items: center;
     width: auto;
 }
 
-.nav_item:hover {
+.shop_nav_item:hover {
     cursor: pointer;
 }
 

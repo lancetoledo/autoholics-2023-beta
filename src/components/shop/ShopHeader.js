@@ -75,11 +75,11 @@ const ShopHeader = ({ click, setClick, cart }) => {
                     <ScrollLink activeClass='active' className='logo' to='hero' spy={true} smooth={true} offset={50} duration={500} onClick={() => clearActive()}>
                         <img src={logo} alt='Autoholics' />
                     </ScrollLink>
-                    <div className='nav_menu'>
-                        <p className='nav_item'>About Us</p>
-                        <p className='nav_item'>Services</p>
-                        <p className='nav_item'>Contact Us</p>
-                        <p className='nav_item'>Shop</p>
+                    <div className='shop_nav_menu'>
+                        <p className='shop_nav_item'>About Us</p>
+                        <p className='shop_nav_item'>Services</p>
+                        <p className='shop_nav_item'>Contact Us</p>
+                        <p className='shop_nav_item'>Shop</p>
                     </div>
                     <div className='user_controls'>
                         {user ? <p className='user'>{user?.displayName}</p> : ''}
