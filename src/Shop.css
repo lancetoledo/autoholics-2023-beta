@@ -8,23 +8,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .shop_header {
     height: 80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     color: white;
 }
 
-
 .nav {
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     max-width: 2100px;
     width: 100%;
+    padding: 0 20px;
+    /* Add padding to the left and right */
+    box-sizing: border-box;
+    /* Include padding in the width calculation */
 }
 
 .logo {
@@ -35,10 +39,8 @@
 
 .nav_menu {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex: 1;
-    gap: 2px;
+    gap: 100px;
+    width: auto;
 }
 
 
@@ -46,8 +48,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    color: inherit;
+    width: auto;
 }
 
 .nav_item:hover {

@@ -76,18 +76,10 @@ const ShopHeader = ({ click, setClick, cart }) => {
                         <img src={logo} alt='Autoholics' />
                     </ScrollLink>
                     <div className='nav_menu'>
-                        <ScrollLink activeClass='active' to='about' spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('about')}>
-                            <p className={click === 'about' ? 'nav_item activate' : 'nav_item'}>About Us</p>
-                        </ScrollLink>
-                        <ScrollLink activeClass='active' to='services' spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('services')}>
-                            <p className={click === 'services' ? 'nav_item activate' : 'nav_item'}>Services</p>
-                        </ScrollLink>
-                        <ScrollLink activeClass='active' to='discover' spy={true} smooth={true} offset={50} duration={500} onClick={() => handleStatus('contact')}>
-                            <p className={click === 'contact' ? 'nav_item activate' : 'nav_item'}>Contact Us</p>
-                        </ScrollLink>
-                        <Link className='nav_item shop' to='shop' style={{ textDecoration: 'none' }}>
-                            Shop
-                        </Link>
+                        <p className='nav_item'>About Us</p>
+                        <p className='nav_item'>Services</p>
+                        <p className='nav_item'>Contact Us</p>
+                        <p className='nav_item'>Shop</p>
                     </div>
                     <div className='user_controls'>
                         {user ? <p className='user'>{user?.displayName}</p> : ''}

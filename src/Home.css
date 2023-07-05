@@ -51,18 +51,15 @@
 
 /* .nav_menu {
   display: flex;
-  width: 30%;
-} */
+  gap: 100px;
+  width: auto;
+}
+
 
 .nav_item {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: blue;
-  border: 1px solid red; */
-  text-align: center;
-  color: inherit;
-}
+  width: auto;
+} */
 
 .nav_item:hover {
   cursor: pointer;
