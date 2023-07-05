@@ -36,24 +36,23 @@ const Shop = () => {
     useEffect(() => {
         const unsub = onSnapshot(collection(db, 'shop'), (snapshot) => {
             const shopData = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-            setShop(shopData);
+
+            const sortData = () => {
+                let sortedData = [...shopData];
+                if (selectedOption === 'Price, low to high') {
+                    sortedData = sortedData.sort((a, b) => a.price - b.price);
+                } else if (selectedOption === 'Price, high to low') {
+                    sortedData = sortedData.sort((a, b) => b.price - a.price);
+                } else if (selectedOption === 'Alphabetically, A-Z') {
+                    sortedData = sortedData.sort((a, b) => a.value.localeCompare(b.value));
+                } else if (selectedOption === 'Alphabetically, Z-A') {
+                    sortedData = sortedData.sort((a, b) => b.value.localeCompare(a.value));
+                }
+                setFilteredData(sortedData);
+            };
+            sortData();
+
         });
-
-        const sortData = () => {
-            let sortedData = [...shop];
-            if (selectedOption === 'Price, low to high') {
-                sortedData = sortedData.sort((a, b) => a.price - b.price);
-            } else if (selectedOption === 'Price, high to low') {
-                sortedData = sortedData.sort((a, b) => b.price - a.price);
-            } else if (selectedOption === 'Alphabetically, A-Z') {
-                sortedData = sortedData.sort((a, b) => a.value.localeCompare(b.value));
-            } else if (selectedOption === 'Alphabetically, Z-A') {
-                sortedData = sortedData.sort((a, b) => b.value.localeCompare(a.value));
-            }
-            setFilteredData(sortedData);
-        };
-
-        sortData();
 
         return unsub; // cleanup
     }, [selectedOption]);
