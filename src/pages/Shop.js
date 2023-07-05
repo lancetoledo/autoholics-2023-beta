@@ -132,7 +132,7 @@ const Shop = () => {
                         </div>
                     )}
                 </div>
-                <p>{shop.length} products</p>
+                <p>{filteredData.length} products</p>
             </div>
             <div className='items_container'>
                 {filteredData.map((item) => {

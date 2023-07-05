@@ -269,6 +269,36 @@
   text-decoration: none;
 }
 
+@media screen and (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    height: auto;
+    padding: 50px 20px;
+    gap: 50px;
+    text-align: center;
+  }
+
+  .info {
+    max-width: none;
+    height: auto;
+  }
+
+  .info_title {
+    font-size: 28px;
+  }
+
+  .car {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #about_btn {
+    height: 60px;
+    width: 120px;
+    font-size: 14px;
+  }
+}
+
 /* SERVICES */
 .services {
   color: #fff;
@@ -472,4 +502,19 @@
 .socials_icon:hover {
   transition: all 0.2s ease-in-out;
   color: #01bf71;
+}
+
+@media screen and (max-width: 768px) {
+  .nav_menu {
+    display: none;
+  }
+
+  .user_controls {
+    gap: 10px;
+  }
+
+  .btn {
+    font-size: 14px;
+    width: 80px;
+  }
 }
