@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 const Item = ({ item, addToCart }) => {
     const renderStars = () => {
@@ -10,9 +11,15 @@ const Item = ({ item, addToCart }) => {
         return stars;
     };
 
+    const productPage = () => {
+
+    }
+
     return (
         <div className='item' key={item.id} onClick={() => addToCart(item)}>
-            <img id='item_image' src={item.image} alt={item.value} />
+            <Link className='logo_div' to="/product" style={{ textDecoration: 'none' }}>
+                <img id='item_image' src={item.image} alt={item.value} />
+            </Link>
             <div className='item_info'>
                 <p id='value'>{item.value}</p>
                 <div className='stars'>{renderStars()}</div>

@@ -8,7 +8,7 @@ import * as Scroll from 'react-scroll';
 import { AiOutlineUser } from 'react-icons/ai';
 import { IoBagHandleOutline } from 'react-icons/io5';
 
-const ShopHeader = ({ click, setClick, cart }) => {
+const ProductHeader = ({ click, setClick, cart }) => {
     const [isAuthUser, setAuthUser] = useState(false);
     const [user, setUser] = useState('');
     const [scrollNav, setScrollNav] = useState(false);
@@ -20,13 +20,13 @@ const ShopHeader = ({ click, setClick, cart }) => {
     onAuthStateChanged(auth, (user) => {
         if (user && isUser === false) {
             const uid = user.uid;
-            console.log('setting user');
+            console.log('setting user', uid);
             setUser(user);
             setIsUser(true);
         } else {
             // User is signed out
             // ...
-            console.log("User is signed in", user)
+            console.log("ELSE IS RUNNING USER IS SIGNED OUT")
         }
     });
 
@@ -71,16 +71,16 @@ const ShopHeader = ({ click, setClick, cart }) => {
                 reverseOrder={false}
                 containerClassName="toast"
             /> */}
-            <div className='shop_header' style={{ background: scrollNav ? '#010606' : 'transparent' }}>
+            <div className='product_header' style={{ background: scrollNav ? '#010606' : 'transparent' }}>
                 <div className='nav'>
                     <ScrollLink activeClass='active' className='logo' to='hero' spy={true} smooth={true} offset={50} duration={500} onClick={() => clearActive()}>
                         <img src={logo} alt='Autoholics' />
                     </ScrollLink>
-                    <div className='shop_nav_menu'>
-                        <p className='shop_nav_item'>About Us</p>
-                        <p className='shop_nav_item'>Services</p>
-                        <p className='shop_nav_item'>Contact Us</p>
-                        <p className='shop_nav_item'>Shop</p>
+                    <div className='product_nav_menu'>
+                        <p className='product_nav_item'>About Us</p>
+                        <p className='product_nav_item'>Services</p>
+                        <p className='product_nav_item'>Contact Us</p>
+                        <p className='product_nav_item'>Shop</p>
                     </div>
                     <div className='user_controls'>
                         {user ? <p className='user'>{user?.displayName}</p> : ''}
@@ -113,4 +113,4 @@ const ShopHeader = ({ click, setClick, cart }) => {
     );
 };
 
-export default ShopHeader;
+export default ProductHeader;

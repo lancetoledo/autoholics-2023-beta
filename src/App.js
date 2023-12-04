@@ -3,9 +3,12 @@ import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Shop from './pages/Shop';
+import Product from './pages/Product';
+
 import './Home.css';
 import './Login.css';
 import './Shop.css'
+import './Product.css'
 
 
 function App() {
@@ -16,6 +19,7 @@ function App() {
         <Route path='/signin' element={<SignIn />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/shop' element={<Shop />} />
+        <Route path='/product' element={<Product />} />
       </Routes>
     </div>
   );
